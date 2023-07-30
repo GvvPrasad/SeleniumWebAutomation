@@ -23,6 +23,13 @@
 			<artifactId>webdrivermanager</artifactId>
 			<version>5.4.1</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.6</version>
+		</dependency>
+
 
 	</dependencies>
 </project>

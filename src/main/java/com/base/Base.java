@@ -9,19 +9,26 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.objectrespo.ObjectRespo;
-import com.properties.ReadProperties;
+import com.objectRespo.AppObjectRespo;
+import com.utilies.ReadProperties;
+import com.utilies.ReportGeneration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Base extends ObjectRespo {
+public class Base extends AppObjectRespo {
 	
 	@Parameters("browser")
 	@BeforeSuite
 	public static void browerSetUp(String browser) throws IOException {
+		
+		//Read properties file
 		ReadProperties rp = new ReadProperties();
 		rp.readProperties();
-
+		
+		//Generate reports
+		ReportGeneration.reportGeneration();
+		
+		//Select browser
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
@@ -37,14 +44,13 @@ public class Base extends ObjectRespo {
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
-		driver.get(ObjectRespo.appUrl);
+		driver.get(AppObjectRespo.appUrl);
 	}
 	
 	@AfterSuite
 	public static void tearDown() throws InterruptedException {
-		Thread.sleep(5000);
 		driver.close();
 		driver.quit();
+		extent.flush();
 	}
-
 }
