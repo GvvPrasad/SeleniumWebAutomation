@@ -10,8 +10,8 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
 import com.objectRespo.AppObjectRespo;
-import com.utilies.ReadProperties;
-import com.utilies.ReportGeneration;
+import com.utilities.ReadProperties;
+import com.utilities.ReportGeneration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 

@@ -23,9 +23,14 @@ public class CreateAccount extends Base {
 		}
 		
 		RegistrationPage rp = new RegistrationPage(driver);
-		rp.newUserRegistration(fname, lname, useremail, userpassword, confirpassword);
+		rp.newUserRegistration("usha", "fairy", "usha@yopmail.com", "Prasu$1819", "Prasu$1819");
 		
-		span[class="logged-in"]
+		if (driver.getTitle().equalsIgnoreCase("My Account")) {
+			test.log(Status.PASS, "Registered successfully");
+		}else {
+			test.log(Status.FAIL, "Registration Fail");
+		}
+		
 		
 	}
 }

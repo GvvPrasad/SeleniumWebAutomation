@@ -2,6 +2,9 @@ package com.objectRespo;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -24,5 +27,14 @@ public class AppObjectRespo{
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest test;
+	public static int totalNoOfRows;
+	public static int totalNoOfColumns;
+	
+	//Excel
+	public static Workbook excelFile;
+	public static Sheet excelSheet;
+	
+	//Test case files
+	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx";
 
 }
