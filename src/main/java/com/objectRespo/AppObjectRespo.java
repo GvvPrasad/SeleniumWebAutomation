@@ -1,10 +1,16 @@
 package com.objectRespo;
 
+import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -27,12 +33,15 @@ public class AppObjectRespo{
 	public static ExtentHtmlReporter htmlReporter;
 	public static ExtentReports extent;
 	public static ExtentTest test;
-	public static int totalNoOfRows;
-	public static int totalNoOfColumns;
 	
 	//Excel
-	public static Workbook excelFile;
-	public static Sheet excelSheet;
+	public static FileInputStream workFile;
+	public static XSSFWorkbook excelFile;
+	public static XSSFSheet excelSheet;
+	public static int totalNoOfRows;
+	public static int totalNoOfColumns;
+	public static XSSFRow row;
+	public static XSSFCell cell;
 	
 	//Test case files
 	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx";

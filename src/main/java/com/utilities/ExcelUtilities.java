@@ -3,15 +3,17 @@ package com.utilities;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.base.Base;
 
 public class ExcelUtilities extends Base {
 
+	static int i;
+	static int j;
+
 	public static void getExcel(String fileLocation) throws IOException {
-		FileInputStream workFile = new FileInputStream(fileLocation);
+		workFile = new FileInputStream(fileLocation);
 		excelFile = new XSSFWorkbook(workFile);
 	}
 
@@ -29,14 +31,20 @@ public class ExcelUtilities extends Base {
 		return totalNoOfColumns;
 	}
 
-	public static void getValuesFromExcel() {
-		for (int i = 0; i < excelSheet.getLastRowNum() + 1; i++) {
-			Row row = excelSheet.getRow(i);
-			for (int j = 0; j < row.getLastCellNum(); j++) {
-				System.out.print(row.getCell(j).getStringCellValue());
+	public static String[][] getValuesFromExcel() throws IOException {
+		String[][] excelData = new String[totalNoOfRows][totalNoOfColumns];
+		for (i = 1; i < totalNoOfRows; i++) {
+			row = excelSheet.getRow(i);
+			for (j = 0; j < totalNoOfColumns; j++) {
+				cell = row.getCell(j);
+				excelData[i - 1][j] = cell.toString();
+				System.out.println(excelData);
 			}
-			System.out.println();
+
 		}
+		workFile.close();
+		excelFile.close();
+		return excelData;
 	}
 
 }
