@@ -1,11 +1,11 @@
-package com.utilies;
+package com.utilities;
 
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.base.Base;
-import com.objectRespo.AppObjectRespo;
+import com.objectrespo.AppObjectRespo;
 
 public class ReportGeneration extends Base {
 

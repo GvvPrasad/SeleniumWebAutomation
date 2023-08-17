@@ -3,6 +3,8 @@ package com.utilities;
 import java.io.FileInputStream;
 import java.io.IOException;
 
+import org.apache.poi.ss.usermodel.DataFormat;
+import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import com.base.Base;
@@ -22,7 +24,7 @@ public class ExcelUtilities extends Base {
 	}
 
 	public static int getRowCount() {
-		totalNoOfRows = excelSheet.getLastRowNum() + 1;
+		totalNoOfRows = excelSheet.getLastRowNum();
 		return totalNoOfRows;
 	}
 
@@ -32,18 +34,13 @@ public class ExcelUtilities extends Base {
 	}
 
 	public static String[][] getValuesFromExcel() throws IOException {
-		String[][] excelData = new String[totalNoOfRows][totalNoOfColumns];
-		for (i = 1; i < totalNoOfRows; i++) {
-			row = excelSheet.getRow(i);
+		String[][] excelData = new String[getRowCount()][getColumnCount()];
+		for (i = 0; i < totalNoOfRows; i++) {
 			for (j = 0; j < totalNoOfColumns; j++) {
-				cell = row.getCell(j);
-				excelData[i - 1][j] = cell.toString();
-				System.out.println(excelData);
+				DataFormatter df = new DataFormatter();
+				excelData[i][j] = df.formatCellValue(excelSheet.getRow(i+1).getCell(j));
 			}
-
 		}
-		workFile.close();
-		excelFile.close();
 		return excelData;
 	}
 

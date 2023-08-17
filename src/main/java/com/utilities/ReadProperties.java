@@ -1,11 +1,11 @@
-package com.utilies;
+package com.utilities;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
 import com.base.Base;
-import com.objectRespo.AppObjectRespo;
+import com.objectrespo.AppObjectRespo;
 
 public class ReadProperties extends Base{
 	

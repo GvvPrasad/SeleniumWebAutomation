@@ -9,7 +9,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
-import com.objectRespo.AppObjectRespo;
+import com.objectrespo.AppObjectRespo;
 import com.utilities.ReadProperties;
 import com.utilities.ReportGeneration;
 

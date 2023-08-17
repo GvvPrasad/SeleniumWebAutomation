@@ -1,4 +1,4 @@
-package com.pageObjects;
+package com.pageobjects;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,7 +39,7 @@ public class RegistrationPage extends Base{
 		email.sendKeys(useremail);
 		password.sendKeys(userpassword);
 		confirmPassword.sendKeys(confirmpassword);
-		submitbutton.click();
+		//submitbutton.click();
 	}
 
 }
