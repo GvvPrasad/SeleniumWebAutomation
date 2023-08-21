@@ -45,5 +45,8 @@ public class AppObjectRespo{
 	
 	//Test case files
 	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx";
+	
+	//Screenshot
+	public static String screenShotLocation = projectPath + "\\screenshot\\screenshot_"+timestamp+".png"; 
 
 }

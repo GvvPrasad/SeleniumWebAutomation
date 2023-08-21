@@ -9,6 +9,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.aventstack.extentreports.Status;
 import com.objectrespo.AppObjectRespo;
 import com.utilities.ReadProperties;
 import com.utilities.ReportGeneration;
@@ -32,14 +33,15 @@ public class Base extends AppObjectRespo {
 		if (browser.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
-		} else if (browser.equalsIgnoreCase("firefox")) {
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
 		} else if (browser.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
-		} else {
+		} else if (browser.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+		} else{
 			System.out.println("Not a valid browser");
+			test.log(Status.FAIL, browser + " is not a valid browser");
 		}
 		
 		driver.manage().window().maximize();

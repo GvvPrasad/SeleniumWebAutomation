@@ -1,26 +1,78 @@
 package com.utilities;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.Set;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.base.Base;
+import com.objectrespo.AppObjectRespo;
 
 public class BrowserUtilities extends Base {
-	
-	//Browser alerts
+	static WebDriverWait wait;
+
+	// Browser alerts
 	public static String browserAlerts(String alerttype, String message) {
-		
+
+		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		String alerttext = null;
-		
+
 		switch (alerttype) {
-		case "accept": driver.switchTo().alert().accept();
+		case "accept":
+			driver.switchTo().alert().accept();
 			break;
-		case "dismiss": driver.switchTo().alert().dismiss();
+		case "dismiss":
+			driver.switchTo().alert().dismiss();
 			break;
-		case "gettext": alerttext = driver.switchTo().alert().getText();
+		case "gettext":
+			alerttext = driver.switchTo().alert().getText();
 			break;
-		case "sendtext": driver.switchTo().alert().sendKeys(message);
+		case "sendtext":
+			driver.switchTo().alert().sendKeys(message);
 			break;
 		}
 		return alerttext;
 	}
 	
+	//Iframe
+	public static void switchToIframe(WebElement element) {
+		driver.switchTo().frame(element);
+	}
 	
+	//Current window handle
+	public static String currentWindow() {
+		String currentWindowHandle = driver.getWindowHandle();
+		return currentWindowHandle;
+	}
+	
+	//Get all window handles
+	public static Set<String> allwindows() {
+		Set<String> allWindowHandles = driver.getWindowHandles();
+		return allWindowHandles;
+	}
+	
+	//Switch to specific window
+	public static void desiredWindow(String[] allWindowHandles, String desiredwindow) {
+		for (String eachHandle : allWindowHandles) {
+			if (eachHandle.equalsIgnoreCase(desiredwindow)) {
+				driver.switchTo().window(desiredwindow);
+			}
+		}
+	}
+	
+	//Screenshot
+	public static void screenShot() throws IOException {
+		TakesScreenshot scrShot =((TakesScreenshot)driver);
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);	
+		File DestFile=new File(AppObjectRespo.screenShotLocation);
+		FileUtils.copyFile(SrcFile, DestFile);
+	}
 }
