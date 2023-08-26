@@ -1,10 +1,19 @@
 package com.listener;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestNgListener implements ITestListener {
+import com.aventstack.extentreports.Status;
+import com.base.Base;
+
+public class TestNgListener extends Base implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -18,12 +27,22 @@ public class TestNgListener implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		// TODO Auto-generated method stub
+		String methodName = result.getName().toString();
+
+		TakesScreenshot scrShot = ((TakesScreenshot) driver);
+		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+		File DestFile = new File(projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png");
+		try {
+			FileUtils.copyFile(SrcFile, DestFile);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		String methodName = result.getName().toString();
 	}
 
 	@Override

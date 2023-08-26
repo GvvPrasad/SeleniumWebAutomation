@@ -5,13 +5,14 @@
 
 <listeners>
    <listener class-name="com.listener.RetryListener"/>
+   <listener class-name="com.listener.TestNgListener"/>
 </listeners>
 
 	<parameter name="browser" value="edge" />
 	
 	<test name="Smoke">
 		<classes>
-			<class name="com.testScripts.CreateAccount" />
+			<class name="com.testscripts.CreateAccount" />
 		</classes>
 	</test>
 </suite> 

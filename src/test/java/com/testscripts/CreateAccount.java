@@ -27,7 +27,7 @@ public class CreateAccount extends Base {
 		if (driver.getTitle().equalsIgnoreCase("create new Customer account")) {
 			test.log(Status.PASS, "Registration page opened");
 		}
-/*
+
 		RegistrationPage rp = new RegistrationPage(driver);
 		rp.newUserRegistration(fname, lname, email, password, Confirmpassword);
 
@@ -36,7 +36,7 @@ public class CreateAccount extends Base {
 		} else {
 			test.log(Status.FAIL, "Registration Fail");
 		}
-		*/
+		
 		
 	}
 	

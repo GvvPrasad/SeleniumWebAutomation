@@ -7,6 +7,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 
 import com.aventstack.extentreports.Status;
@@ -16,6 +17,7 @@ import com.utilities.ReportGeneration;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+@Listeners(com.listener.TestNgListener.class)
 public class Base extends AppObjectRespo {
 	
 	@Parameters("browser")
@@ -47,6 +49,7 @@ public class Base extends AppObjectRespo {
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.get(AppObjectRespo.appUrl);
+
 	}
 	
 	@AfterSuite

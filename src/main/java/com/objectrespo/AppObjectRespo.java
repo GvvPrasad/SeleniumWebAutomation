@@ -21,7 +21,7 @@ public class AppObjectRespo{
 	
 	//Project
 	public static String projectPath = System.getProperty("user.dir");
-	public static String timestamp = new SimpleDateFormat("dd_MM_yyyy HH:mm").format(Calendar.getInstance().getTime()).replaceAll(":", "-");
+	public static String timestamp = new SimpleDateFormat("dd_MM_yyyy HH:mm").format(Calendar.getInstance().getTime()).replaceAll(":", "_");
 	public static WebDriver driver;
 	
 	//Application
@@ -44,9 +44,6 @@ public class AppObjectRespo{
 	public static XSSFCell cell;
 	
 	//Test case files
-	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx";
-	
-	//Screenshot
-	public static String screenShotLocation = projectPath + "\\screenshot\\screenshot_"+timestamp+".png"; 
+	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx"; 
 
 }

@@ -7,10 +7,12 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import com.base.Base;
 
+@Listeners(com.listener.TestNgListener.class)
 public class BrokenLinks extends Base {
 
 	// variables

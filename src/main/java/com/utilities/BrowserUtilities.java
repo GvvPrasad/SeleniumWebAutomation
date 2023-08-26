@@ -7,6 +7,7 @@ import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -18,6 +19,7 @@ import com.objectrespo.AppObjectRespo;
 
 public class BrowserUtilities extends Base {
 	static WebDriverWait wait;
+	static JavascriptExecutor js = (JavascriptExecutor) driver;
 
 	// Browser alerts
 	public static String browserAlerts(String alerttype, String message) {
@@ -69,10 +71,27 @@ public class BrowserUtilities extends Base {
 	}
 	
 	//Screenshot
-	public static void screenShot() throws IOException {
+	public static void screenShot(String methodName) throws IOException {
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
 		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);	
-		File DestFile=new File(AppObjectRespo.screenShotLocation);
+		File DestFile=new File(projectPath + "\\screenshot\\" +methodName+timestamp+".png");
 		FileUtils.copyFile(SrcFile, DestFile);
 	}
+	
+	//Scroll to end of page
+	public static void scrollToEnd() {
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+	}
+	
+	//scroll to top of page
+	public static void scrollToTop() {
+		js.executeScript("window.scrollBy(0,0)");
+	}
+	
+	//Scroll to a particular element
+	public static void scrollToElement(WebElement element) {
+		js.executeScript("arguments[0].scrollIntoView();", element);
+	}
+	
+	
 }
