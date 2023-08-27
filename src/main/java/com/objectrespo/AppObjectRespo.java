@@ -11,6 +11,7 @@ import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -45,5 +46,7 @@ public class AppObjectRespo{
 	
 	//Test case files
 	public static String testDataFile = projectPath+"\\src\\test\\resources\\TestCases.xlsx"; 
-
+	
+	//Screenshot
+	public static String dest; 
 }

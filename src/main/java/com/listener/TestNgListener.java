@@ -12,6 +12,7 @@ import org.testng.ITestResult;
 
 import com.aventstack.extentreports.Status;
 import com.base.Base;
+import com.objectrespo.AppObjectRespo;
 
 public class TestNgListener extends Base implements ITestListener {
 
@@ -28,10 +29,11 @@ public class TestNgListener extends Base implements ITestListener {
 	@Override
 	public void onTestFailure(ITestResult result) {
 		String methodName = result.getName().toString();
-
+		
 		TakesScreenshot scrShot = ((TakesScreenshot) driver);
 		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-		File DestFile = new File(projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png");
+		AppObjectRespo.dest = projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png";
+		File DestFile = new File(dest);
 		try {
 			FileUtils.copyFile(SrcFile, DestFile);
 		} catch (IOException e) {

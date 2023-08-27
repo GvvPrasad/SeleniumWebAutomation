@@ -71,11 +71,13 @@ public class BrowserUtilities extends Base {
 	}
 	
 	//Screenshot
-	public static void screenShot(String methodName) throws IOException {
+	public static String screenShot(String methodName) throws IOException {
 		TakesScreenshot scrShot =((TakesScreenshot)driver);
-		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);	
-		File DestFile=new File(projectPath + "\\screenshot\\" +methodName+timestamp+".png");
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+		AppObjectRespo.dest = projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png";
+		File DestFile=new File(dest);
 		FileUtils.copyFile(SrcFile, DestFile);
+		return dest;
 	}
 	
 	//Scroll to end of page

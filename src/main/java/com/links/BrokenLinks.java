@@ -10,6 +10,8 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.base.Base;
 
 @Listeners(com.listener.TestNgListener.class)
@@ -20,6 +22,8 @@ public class BrokenLinks extends Base {
 
 	@Test
 	public static void brokenLinksList() throws IOException {
+		test = extent.createTest("Checking all broken links");
+		
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 
 		// Get all the links
@@ -28,7 +32,7 @@ public class BrokenLinks extends Base {
 			String linkUrl = link.getAttribute("href");
 			
 			if (linkUrl == null || linkUrl.isEmpty()) {
-				System.out.println(linkText+" : "+linkUrl + " :URL is either not configured for anchor tag or it is empty");
+				test.log(Status.INFO, linkText+" : "+linkUrl + " :URL is either not configured for anchor tag or it is empty");
 				continue;
 			}
 
@@ -41,7 +45,7 @@ public class BrokenLinks extends Base {
 			
 			if(hul.getResponseCode()>=400)
             {
-            	System.out.println(linkText+" : "+linkUrl+" is a broken link");
+            	test.log(Status.INFO, linkText+" : "+linkUrl+" is a broken link");
             } 
 		}
 
