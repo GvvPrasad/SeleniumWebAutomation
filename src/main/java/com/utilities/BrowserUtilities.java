@@ -95,5 +95,32 @@ public class BrowserUtilities extends Base {
 		js.executeScript("arguments[0].scrollIntoView();", element);
 	}
 	
+	//Refresh page
+	public static void refreshPage() {
+		driver.navigate().refresh();
+	}
+	
+	//Move page backward
+	public static void movePageBackward() {
+		driver.navigate().back();
+	}
+	
+	//Move page forward
+	public static void movePageForward() {
+		driver.navigate().forward();
+	}
+	
+	//Move the mouse to a particular element
+	public static void moveMouseToParticularElement(WebElement element) {
+		act.moveToElement(element).build().perform();
+	}
+	
+	//Drag & Drop element
+	public static void dragAndDrop(WebElement source, WebElement destination) {
+		act.dragAndDrop(source, destination).build().perform();
+	}
+	
+	//
+	
 	
 }
