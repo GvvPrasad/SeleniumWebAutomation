@@ -3,10 +3,12 @@ package com.utilities;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -16,6 +18,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.Base;
 import com.objectrespo.AppObjectRespo;
+
+import io.netty.handler.codec.http.HttpHeaders.Values;
 
 public class BrowserUtilities extends Base {
 	static WebDriverWait wait;
@@ -120,7 +124,18 @@ public class BrowserUtilities extends Base {
 		act.dragAndDrop(source, destination).build().perform();
 	}
 	
-	//
+	//web tables
+	public static void webTables(String rowXpath, String columnsXpath) {
+		List<WebElement> rows = driver.findElements(By.xpath(rowXpath));
+		List<WebElement> columns = driver.findElements(By.xpath(columnsXpath));
+		
+		for (int i = 1; i < rows.size(); i++) {
+			for (int j = 0; j < columns.size(); j++) {
+				String cellText = columns.get(j).getText();
+				System.out.println(cellText);
+			}
+		}
+	}
 	
 	
 }
