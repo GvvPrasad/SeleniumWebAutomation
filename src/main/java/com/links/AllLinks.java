@@ -21,12 +21,14 @@ public class AllLinks extends Base {
 		test = extent.createTest("Getting All thelinks");
 
 		List<WebElement> allLinks = driver.findElements(By.tagName("a"));
-
+		
+		//Get all links
 		for (WebElement link : allLinks) {
 
 			String linkText = link.getText();
 			String linkUrl = link.getAttribute("href");
-
+			
+			//Checking url is empty or null and displaying them
 			if (linkUrl == null || linkUrl.isEmpty()) {
 				test.log(Status.INFO,
 						MarkupHelper.createLabel(
@@ -35,15 +37,17 @@ public class AllLinks extends Base {
 								ExtentColor.BROWN));
 				continue;
 			}
+			
+			//Checking url belong to same or other application and displaying them
 			if (!(linkUrl.startsWith(AppObjectRespo.baseUrl))) {
 				test.log(Status.INFO,
 						MarkupHelper.createLabel(
-								linkText + " : " + linkUrl
-										+ " :URL does not belong to the same/base domain",
+								linkText + " : " + linkUrl + " :URL does not belong to the same/base domain",
 								ExtentColor.ORANGE));
 				continue;
 			}
-
+			
+			//Display the url
 			test.log(Status.PASS, linkText + " : " + linkUrl);
 		}
 	}

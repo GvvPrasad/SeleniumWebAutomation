@@ -127,17 +127,7 @@ public class BrowserUtilities extends Base {
 	}
 	
 	//web tables
-	public static void webTables(String rowXpath, String columnsXpath) {
-		List<WebElement> rows = driver.findElements(By.xpath(rowXpath));
-		List<WebElement> columns = driver.findElements(By.xpath(columnsXpath));
-		
-		for (int i = 1; i < rows.size(); i++) {
-			for (int j = 0; j < columns.size(); j++) {
-				String cellText = columns.get(j).getText();
-				System.out.println(cellText);
-			}
-		}
-	}
+	
 	
 	
 }

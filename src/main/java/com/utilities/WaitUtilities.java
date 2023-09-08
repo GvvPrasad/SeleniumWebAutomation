@@ -2,7 +2,6 @@ package com.utilities;
 
 import java.time.Duration;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -23,7 +22,7 @@ public class WaitUtilities extends Base{
 	//Explicit wait
 	public static WebElement explicitWaits(int seconds, WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(seconds));
-		WebElement newelement = wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+		WebElement newelement = wait.until(ExpectedConditions.elementToBeClickable(element));
 		return newelement;
 	}
 	
@@ -33,7 +32,7 @@ public class WaitUtilities extends Base{
 				.withTimeout(Duration.ofSeconds(totalseconds))
 				.pollingEvery(Duration.ofSeconds(pollingseconds))
 				.ignoring(NoSuchElementException.class);
-		WebElement newelement = wait.until(ExpectedConditions.visibilityOfElementLocated((By) element));
+		WebElement newelement = wait.until(ExpectedConditions.elementToBeClickable(element));
 		return newelement;
 	}
 }

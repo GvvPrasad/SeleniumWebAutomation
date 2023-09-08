@@ -10,7 +10,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -33,11 +32,13 @@ public class BrokenLinks extends Base {
 		for (WebElement link : links) {
 			String linkText = link.getText();
 			String linkUrl = link.getAttribute("href");
-
+			
+			//Checking if url is empty or null
 			if (linkUrl == null || linkUrl.isEmpty()) {
 				continue;
 			}
-
+			
+			//Checking url belong to same or other applications
 			if (!(linkUrl.startsWith(AppObjectRespo.baseUrl))) {
 				continue;
 			}
@@ -48,7 +49,8 @@ public class BrokenLinks extends Base {
 			hul = (HttpURLConnection) url.openConnection();
 			hul.setConnectTimeout(5000);
 			hul.connect();
-
+			
+			//Displaying all the broken links
 			if (hul.getResponseCode() >= 400) {
 				test.log(Status.FAIL,
 						MarkupHelper.createLabel(linkText + " : " + linkUrl + " :URL is not broken", ExtentColor.RED));

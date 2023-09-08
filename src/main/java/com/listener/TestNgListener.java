@@ -37,8 +37,8 @@ public class TestNgListener extends Base implements ITestListener {
 		try {
 			FileUtils.copyFile(SrcFile, DestFile);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+			e.getMessage();
 		}
 	}
 
