@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -24,6 +25,7 @@ import io.netty.handler.codec.http.HttpHeaders.Values;
 public class BrowserUtilities extends Base {
 	static WebDriverWait wait;
 	static JavascriptExecutor js = (JavascriptExecutor) driver;
+	static Actions act = new Actions(driver); 
 
 	// Browser alerts
 	public static String browserAlerts(String alerttype, String message) {

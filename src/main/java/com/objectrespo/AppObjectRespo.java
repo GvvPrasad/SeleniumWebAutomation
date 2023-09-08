@@ -29,11 +29,11 @@ public class AppObjectRespo{
 	public static EdgeOptions eo = new EdgeOptions();
 	public static FirefoxOptions fo = new FirefoxOptions();
 	public static SafariOptions so = new SafariOptions();
-	public static Actions act = new Actions(driver); 
 	
 	//Application
 	public static String propertiesFile = projectPath + "\\src\\main\\resources\\App.properties";
 	public static String appUrl;
+	public static String baseUrl;
 	
 	//Reports
 	public static String htmlReportPath = projectPath + "\\reports\\htmlreport_"+timestamp+".html";

@@ -3,12 +3,13 @@ package com.utilities;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-import org.apache.poi.ss.usermodel.DataFormatter;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.testng.annotations.Listeners;
 
 import com.aventstack.extentreports.Status;
 import com.base.Base;
 
+@Listeners(com.listener.TestNgListener.class)
 public class ExcelUtilities extends Base {
 
 	static int i;
@@ -19,7 +20,7 @@ public class ExcelUtilities extends Base {
 			workFile = new FileInputStream(fileLocation);
 			excelFile = new XSSFWorkbook(workFile);
 		} catch (Exception e) {
-			test.log(Status.FAIL, e.getMessage());
+			//test.log(Status.FAIL, e.getMessage());
 			System.out.println(e.getMessage());
 		}
 	}
@@ -28,7 +29,7 @@ public class ExcelUtilities extends Base {
 		try {
 			excelSheet = excelFile.getSheetAt(sheetno);
 		} catch (Exception e) {
-			test.log(Status.FAIL, e.getMessage());
+			//test.log(Status.FAIL, e.getMessage());
 			System.out.println(e.getMessage());
 		}
 	}
@@ -47,8 +48,8 @@ public class ExcelUtilities extends Base {
 		String[][] excelData = new String[getRowCount()][getColumnCount()];
 		for (i = 0; i < totalNoOfRows; i++) {
 			for (j = 0; j < totalNoOfColumns; j++) {
-				DataFormatter df = new DataFormatter();
-				excelData[i][j] = df.formatCellValue(excelSheet.getRow(i+1).getCell(j));
+				excelData[i][j] = excelData[i+1][j];
+				System.out.println(excelData[i][j]);
 			}
 		}
 		return excelData;

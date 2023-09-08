@@ -16,5 +16,6 @@ public class ReadProperties extends Base{
         props.load(reader);
         
         AppObjectRespo.appUrl = props.getProperty("URL");
+        AppObjectRespo.baseUrl = props.getProperty("BaseUrl");
 	}
 }

@@ -12,7 +12,10 @@ import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.base.Base;
+import com.objectrespo.AppObjectRespo;
 
 @Listeners(com.listener.TestNgListener.class)
 public class BrokenLinks extends Base {
@@ -23,16 +26,19 @@ public class BrokenLinks extends Base {
 	@Test
 	public static void brokenLinksList() throws IOException {
 		test = extent.createTest("Checking all broken links");
-		
+
 		List<WebElement> links = driver.findElements(By.tagName("a"));
 
 		// Get all the links
 		for (WebElement link : links) {
 			String linkText = link.getText();
 			String linkUrl = link.getAttribute("href");
-			
+
 			if (linkUrl == null || linkUrl.isEmpty()) {
-				test.log(Status.INFO, linkText+" : "+linkUrl + " :URL is either not configured for anchor tag or it is empty");
+				continue;
+			}
+
+			if (!(linkUrl.startsWith(AppObjectRespo.baseUrl))) {
 				continue;
 			}
 
@@ -42,11 +48,11 @@ public class BrokenLinks extends Base {
 			hul = (HttpURLConnection) url.openConnection();
 			hul.setConnectTimeout(5000);
 			hul.connect();
-			
-			if(hul.getResponseCode()>=400)
-            {
-            	test.log(Status.INFO, linkText+" : "+linkUrl+" is a broken link");
-            } 
+
+			if (hul.getResponseCode() >= 400) {
+				test.log(Status.FAIL,
+						MarkupHelper.createLabel(linkText + " : " + linkUrl + " :URL is not broken", ExtentColor.RED));
+			}
 		}
 
 	}
