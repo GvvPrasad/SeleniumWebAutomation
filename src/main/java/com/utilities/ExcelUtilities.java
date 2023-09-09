@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import org.apache.poi.sl.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.Listeners;
 
@@ -52,10 +53,12 @@ public class ExcelUtilities extends Base {
 		Object[][] excelData = new Object[getRowCount()][getColumnCount()];
 		for (i = 1; i <= getRowCount(); i++) {
 			for (j = 0; j < getColumnCount(); j++) {
+				//for Empty cells
+				//for date
 				excelData[i-1][j] =	excelSheet.getRow(i).getCell(j).getStringCellValue();
 			}
 		}
 		return excelData;
 	}
-	
+
 }

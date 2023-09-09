@@ -4,9 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Listeners;
 
 import com.base.Base;
 
+@Listeners(com.listener.TestNgListener.class)
 public class HomePage extends Base {
 
 	public HomePage(WebDriver driver) {
@@ -14,11 +16,13 @@ public class HomePage extends Base {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "/html/body/div[1]/header/div[1]/div/ul/li[3]/a")
+	@FindBy(linkText = "Create an Account")
 	WebElement createAccount;
 	
 	
 	public void clikCreateAccount() {
+		System.out.println("enteer method");
 		createAccount.click();
+		System.out.println("linked clicked");
 	}
 }

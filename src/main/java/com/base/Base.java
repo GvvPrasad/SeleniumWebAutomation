@@ -82,12 +82,10 @@ public class Base extends AppObjectRespo {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName().toString() + " FAILED  ", ExtentColor.RED));
 			String screenshotPath = BrowserUtilities.screenShot(result.getName().toString());
 			test.addScreenCaptureFromPath(screenshotPath);
-			test.fail(result.getThrowable());
 		}
 		if (result.getStatus() == ITestResult.SKIP) {
 			test.log(Status.SKIP,
 					MarkupHelper.createLabel(result.getName().toString() + " SKIPPED ", ExtentColor.ORANGE));
-			test.skip(result.getThrowable());
 		}
 	}
 }

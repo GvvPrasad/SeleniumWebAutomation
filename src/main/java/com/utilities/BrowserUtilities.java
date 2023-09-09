@@ -127,7 +127,18 @@ public class BrowserUtilities extends Base {
 	}
 	
 	//web tables
-	
+	public static Object[][] webTable(WebElement tableElement) {
+		Object[][] tableData = null;
+		List<WebElement> rows = tableElement.findElements(By.tagName("tr"));
+		for (int i = 0; i <= rows.size(); i++) {
+			List<WebElement> columns = rows.get(0).findElements(By.tagName("td"));
+				for (int j = 0; j < columns.size(); j++) {
+					tableData = new Object[rows.size()][columns.size()];
+					tableData[i][j] = columns.get(j).getText();
+				}
+		}
+		return tableData;
+	}
 	
 	
 }

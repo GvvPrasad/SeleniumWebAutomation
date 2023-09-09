@@ -30,7 +30,9 @@ public class CreateAccount extends Base {
 		if (driver.getTitle().equalsIgnoreCase("create new Customer account")) {
 			test.log(Status.PASS, "Registration page opened");
 		}
-/*
+		
+		Thread.sleep(5000);
+		
 		RegistrationPage rp = new RegistrationPage(driver);
 		rp.newUserRegistration(fname, lname, email, password, Confirmpassword);
 
@@ -39,12 +41,12 @@ public class CreateAccount extends Base {
 		} else {
 			test.log(Status.FAIL, "Registration Fail");
 		}
-		*/
+		
 	} 
 	
 
 	@DataProvider(name = "userTestdata")
-	public static String[][] userTestdata() throws IOException {
+	public static Object[][] userTestdata() throws IOException {
 		ExcelUtilities.getExcel(AppObjectRespo.testDataFile);
 		ExcelUtilities.getSheet(0);
 		return ExcelUtilities.getValuesFromExcel();
