@@ -8,7 +8,7 @@
    <listener class-name="com.listener.TestNgListener"/>
 </listeners>
 
-	<parameter name="browser" value="edge" />
+	<parameter name="browser" value="chrome" />
 	
 	<test name="Smoke">
 		<classes>

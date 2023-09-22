@@ -6,15 +6,27 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.ISuite;
+import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-import com.aventstack.extentreports.Status;
 import com.base.Base;
 import com.objectrespo.AppObjectRespo;
 
-public class TestNgListener extends Base implements ITestListener {
+public class TestNgListener extends Base implements ISuiteListener, ITestListener {
+	
+	
+	@Override
+    public void onStart(ISuite suite) {
+		// TODO Auto-generated method stub
+    }
+
+    @Override
+    public void onFinish(ISuite suite) {
+    	// TODO Auto-generated method stub
+    }
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -44,7 +56,7 @@ public class TestNgListener extends Base implements ITestListener {
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		String methodName = result.getName().toString();
+		// TODO Auto-generated method stub
 	}
 
 	@Override

@@ -59,8 +59,7 @@ public class Base extends AppObjectRespo {
 			driver = new SafariDriver(so);
 		} 
 		else {
-			System.out.println("Not a valid browser");
-			test.log(Status.FAIL, browser + " is not a valid browser");
+			System.out.println(browser + " is not a valid browser");
 		}
 
 		driver.manage().window().maximize();
