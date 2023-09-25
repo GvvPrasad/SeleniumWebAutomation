@@ -34,7 +34,7 @@ public class AllLinks extends Base {
 						MarkupHelper.createLabel(
 								linkText + " : " + linkUrl
 										+ " :URL is either not configured for anchor tag or it is empty",
-								ExtentColor.BROWN));
+								ExtentColor.INDIGO));
 				continue;
 			}
 			
@@ -43,7 +43,7 @@ public class AllLinks extends Base {
 				test.log(Status.INFO,
 						MarkupHelper.createLabel(
 								linkText + " : " + linkUrl + " :URL does not belong to the same/base domain",
-								ExtentColor.ORANGE));
+								ExtentColor.GREY));
 				continue;
 			}
 			

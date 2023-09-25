@@ -1,32 +1,35 @@
 package com.listener;
 
-import java.io.File;
 import java.io.IOException;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
+import org.apache.logging.log4j.LogManager;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.base.Base;
-import com.objectrespo.AppObjectRespo;
+import com.utilities.BrowserUtilities;
 
 public class TestNgListener extends Base implements ISuiteListener, ITestListener {
-	
-	
-	@Override
-    public void onStart(ISuite suite) {
-		// TODO Auto-generated method stub
-    }
 
-    @Override
-    public void onFinish(ISuite suite) {
-    	// TODO Auto-generated method stub
-    }
+	{
+		logger = LogManager.getLogger(TestNgListener.class);
+	}
+
+	@Override
+	public void onStart(ISuite suite) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void onFinish(ISuite suite) {
+		// TODO Auto-generated method stub
+	}
 
 	@Override
 	public void onTestStart(ITestResult result) {
@@ -40,23 +43,26 @@ public class TestNgListener extends Base implements ISuiteListener, ITestListene
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		String methodName = result.getName().toString();
-		
-		TakesScreenshot scrShot = ((TakesScreenshot) driver);
-		File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
-		AppObjectRespo.dest = projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png";
-		File DestFile = new File(dest);
-		try {
-			FileUtils.copyFile(SrcFile, DestFile);
-		} catch (IOException e) {
-			e.printStackTrace();
-			e.getMessage();
+		String screenshotPath = null;
+
+		if (result.getStatus() == ITestResult.FAILURE) {
+			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName().toString() + " FAILED  ", ExtentColor.RED));
+			try {
+				screenshotPath = BrowserUtilities.screenShot(result.getName().toString());
+				test.addScreenCaptureFromPath(screenshotPath);
+				logger.error(screenshotPath);
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		// TODO Auto-generated method stub
+		if (result.getStatus() == ITestResult.SKIP) {
+			test.log(Status.SKIP,
+					MarkupHelper.createLabel(result.getName().toString() + " SKIPPED ", ExtentColor.YELLOW));
+		}
 	}
 
 	@Override

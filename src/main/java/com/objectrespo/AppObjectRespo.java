@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import org.apache.logging.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -12,7 +13,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariOptions;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -25,6 +25,7 @@ public class AppObjectRespo{
 	public static String projectPath = System.getProperty("user.dir");
 	public static String timestamp = new SimpleDateFormat("dd_MM_yyyy HH:mm").format(Calendar.getInstance().getTime()).replaceAll(":", "_");
 	public static WebDriver driver;
+	public static Logger logger;
 	public static ChromeOptions co = new ChromeOptions();
 	public static EdgeOptions eo = new EdgeOptions();
 	public static FirefoxOptions fo = new FirefoxOptions();
