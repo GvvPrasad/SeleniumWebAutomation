@@ -3,13 +3,14 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.testScripts.CreateAccount">
+      <class name="com.testscripts.SampleTest">
         <methods>
+          <include name="addToReports"/>
           <include name="tearDown"/>
           <include name="browerSetUp"/>
-          <include name="createAccount"/>
+          <include name="checking"/>
         </methods>
-      </class> <!-- com.testScripts.CreateAccount -->
+      </class> <!-- com.testscripts.SampleTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

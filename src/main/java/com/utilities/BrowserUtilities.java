@@ -15,6 +15,7 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.base.Base;
@@ -140,5 +141,10 @@ public class BrowserUtilities extends Base {
 		return tableData;
 	}
 	
+	//dropdown
+	public static void dropDown(String element, String elementvalue) {
+		Select dropdown = new Select(driver.findElement(By.id(element)));
+		dropdown.selectByVisibleText(elementvalue);
+	}
 	
 }

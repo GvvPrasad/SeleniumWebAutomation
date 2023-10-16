@@ -93,7 +93,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method, 1 failed,   </span>
+                    <span class="method-stats">2 methods, 1 failed,  1 skipped,  </span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,10 +104,24 @@
                     <div class="method-list-content failed suite-Test_Suite">
                       <span>
                         <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Test_Suite" title="com.testScripts.CreateAccount" class="method navigator-link" hash-for-method="createAccount(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234)">createAccount(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Test_Suite" title="com.testscripts.CreateAccount" class="method navigator-link" hash-for-method="createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)">createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Test_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title skipped">Retried methods</span>
+                    <span class="show-or-hide-methods skipped">
+                      <a href="#" panel-name="suite-Test_Suite" class="hide-methods skipped suite-Test_Suite"> (hide)</a> <!-- hide-methods skipped suite-Test_Suite -->
+                      <a href="#" panel-name="suite-Test_Suite" class="show-methods skipped suite-Test_Suite"> (show)</a> <!-- show-methods skipped suite-Test_Suite -->
+                    </span>
+                    <div class="method-list-content skipped suite-Test_Suite">
+                      <span>
+                        <img src="skipped.png" width="3%"/>
+                        <a href="#" panel-name="suite-Test_Suite" title="com.testscripts.CreateAccount" class="method navigator-link" hash-for-method="createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)">createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content skipped suite-Test_Suite -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -122,47 +136,45 @@
           <div class="suite-Test_Suite-class-failed">
             <div class="main-panel-header rounded-window-top">
               <img src="failed.png"/>
-              <span class="class-name">com.testScripts.CreateAccount</span>
+              <span class="class-name">com.testscripts.CreateAccount</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="createAccount(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234)">
-                  </a> <!-- createAccount(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234) -->
+                  <a name="createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)">
+                  </a> <!-- createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123) -->
                   <span class="method-name">createAccount</span>
-                  <span class="parameters">(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234)</span>
-                  <div class="stack-trace">org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;/html/body/div[1]/header/div[1]/div/ul/li[3]/a&quot;}
-  (Session info: MicrosoftEdge=115.0.1901.200)
-For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
-Build info: version: &apos;4.10.0&apos;, revision: &apos;c14d967899&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.4.1&apos;
-Driver info: org.openqa.selenium.edge.EdgeDriver
-Command: [a2eaf3bdff7d981a0dd7e9dee50ef3c9, findElement {using=xpath, value=/html/body/div[1]/header/div[1]/div/ul/li[3]/a}]
-Capabilities {acceptInsecureCerts: false, browserName: msedge, browserVersion: 115.0.1901.200, ms:edgeOptions: {debuggerAddress: localhost:63580}, msedge: {msedgedriverVersion: 115.0.1901.200 (64b0164e9f6..., userDataDir: C:\Users\varap\AppData\Loca...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:63580/devtoo..., se:cdpVersion: 115.0.1901.200, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
-Session ID: a2eaf3bdff7d981a0dd7e9dee50ef3c9
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:199)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:132)
-	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:51)
-	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:191)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:196)
-	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:171)
-	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:531)
-	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
-	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:350)
-	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:344)
-	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
-	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
-	at com.pageObjects.HomePage.clikCreateAccount(HomePage.java:22)
-	at com.testScripts.CreateAccount.createAccount(CreateAccount.java:25)
+                  <span class="parameters">(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [My Account] but found [Create New Customer Account]
+	at com.testscripts.CreateAccount.createAccount(CreateAccount.java:37)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 32 stack frames
+... Removed 33 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-Test_Suite-class-failed -->
+          <div class="suite-Test_Suite-class-skipped">
+            <div class="main-panel-header rounded-window-top">
+              <img src="skipped.png"/>
+              <span class="class-name">com.testscripts.CreateAccount</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)">
+                  </a> <!-- createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123) -->
+                  <span class="method-name">createAccount</span>
+                  <span class="parameters">(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [My Account] but found [Create New Customer Account]
+	at com.testscripts.CreateAccount.createAccount(CreateAccount.java:37)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+... Removed 33 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Test_Suite-class-skipped -->
         </div> <!-- panel Test_Suite -->
         <div panel-name="test-xml-Test_Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -173,10 +185,14 @@ Session ID: a2eaf3bdff7d981a0dd7e9dee50ef3c9
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Test Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;parameter name=&quot;browser&quot; value=&quot;edge&quot;/&gt;
+  &lt;parameter name=&quot;browser&quot; value=&quot;chrome&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.listener.RetryListener&quot;/&gt;
+    &lt;listener class-name=&quot;com.listener.TestNgListener&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Smoke&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.testScripts.CreateAccount&quot;/&gt;
+      &lt;class name=&quot;com.testscripts.CreateAccount&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Smoke --&gt;
 &lt;/suite&gt; &lt;!-- Test Suite --&gt;
@@ -216,11 +232,15 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'createAccount')
-data.setCell(0, 2, 'com.testScripts.CreateAccount')
-data.setCell(0, 3, 5192);
+data.setCell(0, 2, 'com.testscripts.CreateAccount')
+data.setCell(0, 3, 3051);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'createAccount')
+data.setCell(1, 2, 'com.testscripts.CreateAccount')
+data.setCell(1, 3, 2465);
 window.suiteTableData['Test_Suite']= { tableData: data, tableDiv: 'times-div-Test_Suite'}
 return data;
 }
@@ -251,20 +271,24 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.testScripts.CreateAccount</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.testscripts.CreateAccount</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
-                <span class="method-name">browerSetUp(edge)</span>
+                <span class="method-name">browerSetUp(chrome)</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="test-method">
+                <span class="method-name">createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</span>
+                <span class="method-start">9795 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
                 <img src="failed.png">
                 </img>
-                <span class="method-name">createAccount(TC_AR_001, New Account Registration, Lady, Raga, raga@yopmail.com, Smart@1234, Smart@1234)</span>
-                <span class="method-start">14205 ms</span>
+                <span class="method-name">createAccount(TC_NA_001, New account creation, Roy, Miller, roy@yopmail.com, roy@123, roy@123)</span>
+                <span class="method-start">13017 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-suite after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">19585 ms</span>
+                <span class="method-start">15856 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
