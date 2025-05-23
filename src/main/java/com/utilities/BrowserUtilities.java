@@ -81,8 +81,7 @@ public class BrowserUtilities extends Base {
 	public static String screenShot(String methodName) throws IOException {
 		File SrcFile =((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		AppObjectRespo.dest = projectPath + "\\screenshot\\" + methodName +"_"+ timestamp + ".png";
-		File DestFile=new File(dest);
-		FileUtils.copyFile(SrcFile, DestFile);
+		FileUtils.copyFile(SrcFile, new File(dest));
 		return dest;
 	}
 	
